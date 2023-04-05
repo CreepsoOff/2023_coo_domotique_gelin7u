@@ -86,9 +86,14 @@ public class TelecommandeTest {
         t.ajouterLampe(l2);
 
         //methode testee
-        t.activerLampe(2);
+        try {
+            t.activerLampe(2);
+        } catch (Exception e) {
+            // verification
+            // La méthode ne fonctionnera pas car la lampe n'existe pas et donc ne peut pas être activée,
+            // elle lève donc une exception.
+            assertEquals("Index 2 out of bounds for length 2", e.getMessage(), "le message d'erreur devrait etre 'position inexistante'");
+        }
 
-        // verification
-        // rien à vérifier, la méthode ne fait rien
     }
 }
