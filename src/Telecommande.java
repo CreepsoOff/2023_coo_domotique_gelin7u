@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Telecommande {
     private ArrayList<Appareil> appareils;
@@ -14,11 +13,13 @@ public class Telecommande {
     }
 
     public void activerAppareil(int i) {
-        this.appareils.get(i).allumer();
+        if (i < this.appareils.size() && i >= 0)
+            this.appareils.get(i).allumer();
     }
 
     public void desactiverAppareil(int choix) {
-        this.appareils.get(choix).eteindre();
+        if (choix < this.appareils.size() && choix >= 0)
+            this.appareils.get(choix).eteindre();
     }
 
     public void activerTout() {
